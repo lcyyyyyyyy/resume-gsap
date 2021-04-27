@@ -1,0 +1,84 @@
+/* ----------------------------------------
+  Element Size
+---------------------------------------- */
+
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/* ----------------------------------------
+  Element Flexbox
+---------------------------------------- */
+
+@mixin flex($justify-content, $align-items) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+}
+
+/* ----------------------------------------
+  Cover Background Image
+---------------------------------------- */
+
+@mixin backgroundImage($width, $height, $url) {
+  width: $width;
+  height: $height;
+  background-size: $width $height;
+  background-image: url($url);
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+@mixin iconStyle($width, $height, $posX: 100%, $posY: 100%) {
+  width: $width;
+  height: $height;
+  background-image: $iconPath;
+  background-repeat: no-repeat;
+  background-position: $posX $posY;
+  overflow: hidden;
+  display: block;
+}
+
+/* ----------------------------------------
+  Center Element
+---------------------------------------- */
+
+@mixin center($position) {
+  position: absolute;
+
+  @if $position=='vertical' {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  @else if $position=='horizontal' {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @else if $position=='both' {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+/* ----------------------------------------
+  Fade Effect
+---------------------------------------- */
+
+@mixin fade($type) {
+
+  @if $type=='hide' {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility .3s, opacity .3s;
+  }
+
+  @else if $type=='show' {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility .3s, opacity .3s;
+  }
+}

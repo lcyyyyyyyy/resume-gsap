@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.header {
+  padding: 20px 5%;
+  position: relative;
+
+  .menuSwitch {
+    @include size(30px, 30px);
+    @include flex(center, flex-start);
+    @include center(vertical);
+    flex-direction: column;
+    right: 5%;
+    cursor: pointer;
+
+    &.open {
+      .bar {
+        &:nth-child(1) {
+          transform: translateY(9px) rotate(45deg);
+        }
+
+        &:nth-child(2) {
+          transform: scale(0);
+        }
+
+        &:nth-child(3) {
+          transform: translateY(-9px) rotate(-45deg);
+        }
+      }
+    }
+
+    .bar {
+      @include size(100%, 2px);
+      background-color: $colorBlack;
+      transition: $defaultTransition;
+
+      &:nth-child(2) {
+        margin: 7px 0;
+      }
+    }
+  }
+}
