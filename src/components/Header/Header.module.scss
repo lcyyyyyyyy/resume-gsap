@@ -2,8 +2,15 @@
 @import '../../styles/mixin';
 
 .header {
-  padding: 20px 5%;
-  position: relative;
+  width: 100%;
+  position: fixed;
+  z-index: 11;
+
+  .headerWrapper {
+    height: 50px;
+    padding: 20px 5%;
+    position: relative;
+  }
 
   .menuSwitch {
     @include size(30px, 30px);
@@ -15,6 +22,8 @@
 
     &.open {
       .bar {
+        background-color: $colorWhite;
+
         &:nth-child(1) {
           transform: translateY(9px) rotate(45deg);
         }

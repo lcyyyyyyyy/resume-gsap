@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.menuContainer {
+  @include size(100%, 100vh);
+  position: fixed;
+  top: 0;
+  left: -100%;
+  background-color: $colorBlack;
+  z-index: 10;
+
+  .nav {
+    font-size: 6rem;
+    letter-spacing: 3px;
+    padding: 5vh 10vw;
+
+    .item {
+      margin: 3vh 0;
+
+      a {
+        text-decoration: none;
+        color: $colorWhite;
+      }
+    }
+  }
+}
