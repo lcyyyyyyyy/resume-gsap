@@ -1,0 +1,42 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.rings {
+  @include size(300px, 300px);
+  @include center(both);
+  z-index: 100;
+}
+
+.ring {
+  @include size(300px, 300px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-position: 50% 50%;
+  background-image: url(../../static/ring.svg);
+  opacity: 0.7;
+
+  &:global {
+    &.one {
+      :local {
+        animation: rotate 2s linear infinite;
+      }
+    }
+
+    &.two {
+      :local {
+        animation: rotate 8s linear infinite;
+      }
+    }
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

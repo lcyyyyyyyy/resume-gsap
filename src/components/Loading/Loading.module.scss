@@ -1,0 +1,9 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.loading {
+  @include size(100%, 100vh);
+  position: fixed;
+  z-index: 99;
+  background-color: #efd1bd;
+}
