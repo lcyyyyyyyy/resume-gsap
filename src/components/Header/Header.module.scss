@@ -41,7 +41,7 @@
     .bar {
       @include size(100%, 2px);
       background-color: $colorBlack;
-      transition: $defaultTransition;
+      transition: all .3s ease-in-out;
 
       &:nth-child(2) {
         margin: 7px 0;

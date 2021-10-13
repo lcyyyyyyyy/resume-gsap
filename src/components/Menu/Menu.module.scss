@@ -22,5 +22,12 @@
         color: $colorWhite;
       }
     }
+
+    :global {
+      .item {
+        transform: translateY(100px);
+        opacity: 0;
+      }
+    }
   }
 }
