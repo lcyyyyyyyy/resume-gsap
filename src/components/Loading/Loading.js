@@ -5,7 +5,7 @@ import Ring from '../Ring/Ring'
 const Loading = ({ timeline }) => {
   return (
     <>
-      <div className={styles.loading}></div>
+      <div className={styles.loading} id='loading'></div>
       <Ring timeline={timeline} />
     </>
   )

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { gsap } from 'gsap'
 import './App.css'
@@ -7,7 +7,6 @@ import Loading from './components/Loading/Loading'
 
 function App() {
   const [tl, setTl] = useState(() => gsap.timeline())
-
   return (
     <Router>
       {/* <Header /> */}
