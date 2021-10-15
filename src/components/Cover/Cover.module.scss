@@ -1,0 +1,10 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.cover {
+  @include center(both);
+  font-size: 10rem;
+  letter-spacing: 1.2rem;
+  transform: translate(-30%, -50%);
+  left: 30%;
+}
