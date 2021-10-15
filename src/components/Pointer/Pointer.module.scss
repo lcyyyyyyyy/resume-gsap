@@ -1,0 +1,28 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.circle {
+  @include center(both);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border: 1px solid #808080;
+  border-radius: 50px;
+  z-index: 199;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
+
+  &:global {
+    &.small {
+      @include size(5px, 5px);
+      background-color: #808080;
+    }
+
+    &.large {
+      @include size(50px, 50px);
+    }
+  }
+}

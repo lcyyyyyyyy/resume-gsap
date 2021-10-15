@@ -1,16 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { gsap } from 'gsap'
 import './App.css'
 import Header from './components/Header/Header'
 import Loading from './components/Loading/Loading'
+import Pointer from './components/Pointer/Pointer'
 
 function App() {
-  const [tl, setTl] = useState(() => gsap.timeline())
+  const [isShowPointer, setIsShowPointer] = useState(false)
+
   return (
     <Router>
       {/* <Header /> */}
-      <Loading timeline={tl} />
+      <Loading setIsShowPointer={setIsShowPointer} />
+      <Pointer isShowPointer={isShowPointer} />
     </Router>
   )
 }

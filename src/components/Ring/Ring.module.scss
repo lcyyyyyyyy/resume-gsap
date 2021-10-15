@@ -3,16 +3,32 @@
 
 .ring {
   @include size(300px, 300px);
-  position: fixed;
-  transform: translate(-50%, -50%);
-  top: 0;
-  left: 0;
+  @include center(both);
   background-position: 50% 50%;
   background-image: url(../../static/ring.svg);
   z-index: 100;
 
-  &.pointer {
-    background-image: url(../../static/ring-bold.svg);
-    transition: background-image .8s;
+  &:global {
+    &.one {
+      :local {
+        animation: rotateRing 2s linear infinite;
+      }
+    }
+  
+    &.two {
+      :local {
+        animation: rotateRing 8s linear infinite;
+      }
+    }
+  }
+
+  @keyframes rotateRing {
+    from {
+      transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    to {
+      transform: translate(-50%, -50%) rotate(360deg);
+    }
   }
 }
