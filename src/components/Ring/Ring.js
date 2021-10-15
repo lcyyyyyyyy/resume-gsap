@@ -1,8 +1,14 @@
-import React, { useEffect, useRef, useImperativeHandle, forwardRef } from 'react'
+import React, {
+  useEffect,
+  useRef,
+  useState,
+  useImperativeHandle,
+  forwardRef
+} from 'react'
 import styles from './Ring.module.scss'
 import { gsap } from 'gsap'
 
-const Ring = forwardRef(({ name, delay }, ref) => {
+const Ring = forwardRef(({ name, delay, isPointer }, ref) => {
   const el = useRef()
 
   useImperativeHandle(ref, () => {
@@ -13,7 +19,7 @@ const Ring = forwardRef(({ name, delay }, ref) => {
     }
   }, [delay])
 
-  return <div className={`${styles.ring} ${name}`} ref={el}></div>
+  return <div className={`${styles.ring} ${name}${isPointer ? ` ${styles.pointer}` : ''}`} ref={el}></div>
 })
 
 const Rings = ({ timeline }) => {
@@ -59,6 +65,7 @@ const Rings = ({ timeline }) => {
       })
   }, [])
 
+  const [isPointer, setIsPointer] = useState(false)
   const ringRefs = useRef([])
 
   // reset on re-renders
@@ -69,6 +76,8 @@ const Rings = ({ timeline }) => {
   }, [])
 
   const handlePointer = () => {
+    setIsPointer(true)
+
     const onMove = ({ clientX, clientY }) => {
       ringRefs.current.forEach(ref => ref.moveTo(clientX, clientY))
     }
@@ -86,8 +95,8 @@ const Rings = ({ timeline }) => {
 
   return (
     <>
-      <Ring name='one' ref={addRingRef} delay={0} />
-      <Ring name='two' ref={addRingRef} delay={0.1} />
+      <Ring name='one' ref={addRingRef} delay={0} isPointer={isPointer} />
+      <Ring name='two' ref={addRingRef} delay={0.1} isPointer={isPointer} />
     </>
   )
 }
