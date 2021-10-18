@@ -1,28 +1,30 @@
 @import '../../styles/variables';
 @import '../../styles/mixin';
 
-.circle {
-  @include center(both);
+.cursor {
   position: fixed;
-  top: 0;
-  left: 0;
-  border: 1px solid #808080;
-  border-radius: 50px;
-  z-index: 199;
-  opacity: 0;
+  background: #808080;
+  width: 8px;
+  height: 8px;
+  top: -8px;
+  left: -8px;
+  border-radius: 100%;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  transform: scale(0.8);
+}
 
-  &.show {
-    opacity: 1;
-  }
-
-  &:global {
-    &.small {
-      @include size(5px, 5px);
-      background-color: #808080;
-    }
-
-    &.large {
-      @include size(50px, 50px);
-    }
-  }
+.follower {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.1);
+  width: 40px;
+  height: 40px;
+  top: -25px;
+  left: -25px;
+  border-radius: 100%;
+  z-index: 1;
+  user-select: none;
+  pointer-events: none;
+  transform: translate(4px, 4px);
 }

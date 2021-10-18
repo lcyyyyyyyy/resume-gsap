@@ -1,8 +1,9 @@
 import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
+import Loading from '../Loading/Loading'
 import styles from './Cover.module.scss'
 
-const Cover = () => {
+const Cover = ({ setIsLoad }) => {
   useEffect(() => {
     gsap.timeline()
       .from('.letter', {
@@ -10,7 +11,8 @@ const Cover = () => {
         delay: 4,
         stagger: 0.1,
         opacity: 0,
-        ease: 'expo.inOut'
+        ease: 'expo.inOut',
+        onComplete: onComplete
       })
 
     const onMove = ({ clientX, clientY }) => {
@@ -33,18 +35,25 @@ const Cover = () => {
     return () => window.removeEventListener('pointermove', onMove)
   }, [])
 
+  const onComplete = () => {
+    setIsLoad(true)
+  }
+
   return (
-    <div className={`${styles.cover} letters`}>
-      <span className='letter'>F</span>
-      <span className='letter'>R</span>
-      <span className='letter'>O</span>
-      <span className='letter'>N</span>
-      <span className='letter'>T</span>
-      <span className='letter'>-</span>
-      <span className='letter'>E</span>
-      <span className='letter'>N</span>
-      <span className='letter'>D</span>
-    </div>
+    <section className={styles.cover}>
+      <div className='letters'>
+        <span className='letter'>F</span>
+        <span className='letter'>R</span>
+        <span className='letter'>O</span>
+        <span className='letter'>N</span>
+        <span className='letter'>T</span>
+        <span className='letter'>-</span>
+        <span className='letter'>E</span>
+        <span className='letter'>N</span>
+        <span className='letter'>D</span>
+      </div>
+      <Loading />
+    </section>
   )
 }
 

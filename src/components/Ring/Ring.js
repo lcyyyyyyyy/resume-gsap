@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { gsap } from 'gsap'
 import styles from './Ring.module.scss'
 
-const Rings = ({ setIsShowPointer }) => {
+const Rings = () => {
   useEffect(() => {
     gsap.timeline()
       .from(['.one', '.two'], {
@@ -25,14 +25,9 @@ const Rings = ({ setIsShowPointer }) => {
       .to('#loading', {
         duration: 1,
         top: '-110%',
-        ease: 'expo.inOut',
-        onComplete: handleShowPointer
+        ease: 'expo.inOut'
       })
   }, [])
-
-  const handleShowPointer = () => {
-    setIsShowPointer(true)
-  }
 
   return (
     <>
