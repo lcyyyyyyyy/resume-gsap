@@ -16,7 +16,7 @@ function App() {
   useEffect(() => {
     if (isLoad) {
       const scroller = document.querySelector('[data-scrollbar]')
-      const bodyScrollBar = Scrollbar.init(scroller)
+      const bodyScrollBar = Scrollbar.init(document.body, { damping: 0.1, delegateTo: document })
 
       ScrollTrigger.scrollerProxy('.container', {
         scrollTop(value) {
@@ -26,7 +26,7 @@ function App() {
           return bodyScrollBar.scrollTop
         },
       })
-
+      bodyScrollBar.addListener(ScrollTrigger.update)
       document.querySelector('.scroll-content').classList.add('load')
     }
   }, [isLoad])
@@ -34,10 +34,11 @@ function App() {
   return (
     <Router>
       {/* <Header /> */}
-      <div className='container' data-scrollbar>
-        <Cover setIsLoad={setIsLoad} />
-        <section>123</section>
-        <Pointer isLoad={isLoad} />
+      <div className='container'>
+        <Cover isLoad={isLoad} setIsLoad={setIsLoad} ScrollTrigger={ScrollTrigger} />
+        <section id='section1'>123</section>
+        <section id='section2'>456</section>
+        {isLoad && <Pointer />}
       </div>
     </Router>
   )

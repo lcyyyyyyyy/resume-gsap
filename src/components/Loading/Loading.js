@@ -2,11 +2,11 @@ import React from 'react'
 import styles from './Loading.module.scss'
 import Ring from '../Ring/Ring'
 
-const Loading = () => {
+const Loading = ({ isLoad, ScrollTrigger }) => {
   return (
     <>
       <div className={styles.loading} id='loading'></div>
-      <Ring />
+      <Ring isLoad={isLoad} ScrollTrigger={ScrollTrigger} />
     </>
   )
 }

@@ -2,14 +2,14 @@
 @import '../../styles/mixin';
 
 .cover {
-  position: relative;
+  @include flex(center, center);
 
   :global {
     .letters {
-      @include center(both);
       font-size: 10rem;
       letter-spacing: 1.2rem;
       transform: translate(-30%, -50%);
+      top: 50%;
       left: 30%;
       user-select: none;
     }

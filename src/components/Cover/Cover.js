@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import Loading from '../Loading/Loading'
 import styles from './Cover.module.scss'
 
-const Cover = ({ setIsLoad }) => {
+const Cover = ({ isLoad, setIsLoad, ScrollTrigger }) => {
   useEffect(() => {
     gsap.timeline()
       .from('.letter', {
@@ -31,7 +31,6 @@ const Cover = ({ setIsLoad }) => {
     }
 
     window.addEventListener('pointermove', onMove)
-
     return () => window.removeEventListener('pointermove', onMove)
   }, [])
 
@@ -40,7 +39,7 @@ const Cover = ({ setIsLoad }) => {
   }
 
   return (
-    <section className={styles.cover}>
+    <section id='cover' className={styles.cover}>
       <div className='letters'>
         <span className='letter'>F</span>
         <span className='letter'>R</span>
@@ -52,7 +51,7 @@ const Cover = ({ setIsLoad }) => {
         <span className='letter'>N</span>
         <span className='letter'>D</span>
       </div>
-      <Loading />
+      <Loading isLoad={isLoad} ScrollTrigger={ScrollTrigger} />
     </section>
   )
 }

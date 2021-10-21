@@ -1,8 +1,10 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import styles from './Ring.module.scss'
 
-const Rings = () => {
+const Rings = ({ isLoad, ScrollTrigger }) => {
+  gsap.registerPlugin(ScrollTrigger)
+
   useEffect(() => {
     gsap.timeline()
       .from(['.one', '.two'], {
@@ -28,6 +30,65 @@ const Rings = () => {
         ease: 'expo.inOut'
       })
   }, [])
+
+  const [isLeave, setIsLeave] = useState(false)
+
+  useEffect(() => {
+    if (isLoad) {
+      setTimeout(() => {
+        const tl1 = gsap.timeline({
+          scrollTrigger: {
+            trigger: '#section1',
+            scroller: '.container',
+            start: 'top top+=70%',
+            end: '+=70%',
+            scrub: 0.3,
+            onLeave: onLeave
+            // markers: true
+          }
+        })
+
+        tl1.to(['.one', '.two'], {
+          left: '30%',
+          top: '150%',
+          x: '-30%',
+          y: '-150%',
+          ease: 'none'
+        })
+      }, 100)
+    }
+  }, [isLoad])
+
+  useEffect(() => {
+    if (isLeave) {
+      const tl2 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#section1',
+          scroller: '.container',
+          start: 'top top+=70%',
+          end: '+=70%',
+          scrub: 0.3,
+          // markers: true
+        }
+      })
+
+      tl2.to(['.one', '.two'], {
+        left: '70%',
+        top: '250%',
+        x: '-70%',
+        y: '-250%',
+        ease: 'none',
+      })
+    }
+  }, [isLeave])
+
+  const onLeave = () => {
+    setIsLeave(true)
+  }
+
+  const onEnter = () => {
+    console.log(123)
+  }
 
   return (
     <>
