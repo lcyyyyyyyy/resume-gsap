@@ -1,0 +1,17 @@
+@import '../../../styles/variables';
+@import '../../../styles/mixin';
+
+.phone {
+  @include flex(center, center);
+  max-height: 100%;
+
+  video {
+    width: 87%;
+    border-radius: 40px;
+  }
+
+  img {
+    left: 0;
+    position: absolute;
+  }
+}

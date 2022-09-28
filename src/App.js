@@ -7,6 +7,7 @@ import './App.css'
 import Header from './components/Header/Header'
 import Cover from './components/Cover/Cover'
 import Pointer from './components/Pointer/Pointer'
+import Slider from './components/Slider/Slider'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -15,7 +16,6 @@ function App() {
 
   useEffect(() => {
     if (isLoad) {
-      const scroller = document.querySelector('[data-scrollbar]')
       const bodyScrollBar = Scrollbar.init(document.body, { damping: 0.1, delegateTo: document })
 
       ScrollTrigger.scrollerProxy('.container', {
@@ -36,8 +36,11 @@ function App() {
       {/* <Header /> */}
       <div className='container'>
         <Cover isLoad={isLoad} setIsLoad={setIsLoad} ScrollTrigger={ScrollTrigger} />
-        <section id='section1'>123</section>
-        <section id='section2'>456</section>
+        <section id='section1' className={isLoad ? 'loaded' : ''}>
+          <Slider />
+        </section>
+        <section id='section2' className={isLoad ? 'loaded' : ''}>456</section>
+        <section id='section3' className={isLoad ? 'loaded' : ''}>789</section>
         {isLoad && <Pointer />}
       </div>
     </Router>

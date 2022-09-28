@@ -82,6 +82,29 @@ const Rings = ({ isLoad, ScrollTrigger }) => {
     }
   }, [isLeave])
 
+  useEffect(() => {
+    if (isLeave) {
+      const tl3 = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#section2',
+          scroller: '.container',
+          start: 'top top+=70%',
+          end: '+=70%',
+          scrub: 0.3,
+          // markers: true
+        }
+      })
+
+      tl3.to(['.one', '.two'], {
+        left: '30%',
+        top: '350%',
+        x: '-30%',
+        y: '-350%',
+        ease: 'none'
+      })
+    }
+  }, [isLeave])
+
   const onLeave = () => {
     setIsLeave(true)
   }

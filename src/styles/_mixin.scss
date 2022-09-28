@@ -82,3 +82,33 @@
     transition: visibility .3s, opacity .3s;
   }
 }
+
+/* ----------------------------------------
+  Media Query Breakpoint
+---------------------------------------- */
+
+$breakpoints: (
+  "phoneSmall":  $breakpointPhoneSmall,
+  "phone":       $breakpointPhone,
+  "phoneWide":   $breakpointPhoneWide,
+  "phablet":     $breakpointPhablet,
+  "tabletSmall": $breakpointTabletSmall,
+  "tablet":      $breakpointTablet,
+  "tabletWide":  $breakpointTabletWide,
+  "desktop":     $breakpointDesktop,
+  "desktopWide": $breakpointDesktopWide
+);
+
+@mixin breakpoint($width, $type: min) {
+  @if map-has-key($breakpoints, $width) {
+    $width: map-get($breakpoints, $width);
+
+    @if $type==max {
+      $width: $width - 1px;
+    }
+
+    @media only screen and (#{$type}-width: $width) {
+      @content;
+    }
+  }
+}

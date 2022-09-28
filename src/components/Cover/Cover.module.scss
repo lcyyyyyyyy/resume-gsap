@@ -3,6 +3,7 @@
 
 .cover {
   @include flex(center, center);
+  opacity: 1;
 
   :global {
     .letters {

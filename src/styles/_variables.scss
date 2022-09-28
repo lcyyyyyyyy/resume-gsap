@@ -35,5 +35,19 @@ $defaultBorderRadius: 3px;
 $defaultBorderColor: $gray2;
 
 /* ----------------------------------------
+  Breakpoints
+---------------------------------------- */
+
+$breakpointPhoneSmall:  320px;
+$breakpointPhone:       400px;
+$breakpointPhoneWide:   480px;
+$breakpointPhablet:     560px;
+$breakpointTabletSmall: 640px;
+$breakpointTablet:      790px;
+$breakpointTabletWide:  1060px;
+$breakpointDesktop:     1260px;
+$breakpointDesktopWide: 1460px;
+
+/* ----------------------------------------
   Theme Setting
 ---------------------------------------- */
