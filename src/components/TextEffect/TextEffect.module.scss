@@ -1,0 +1,89 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.rate {
+  @include center(both);
+  width: 50vw;
+  z-index: 101;
+}
+
+.barWrapper {
+  @include size(100%, 20px);
+  position: relative;
+
+  &:not(:last-child) {
+    margin-bottom: 40px;
+  }
+
+  &:global {
+
+    // Javascript
+    &:nth-child(1) {
+      .barInner {
+        width: 70%;
+      }
+    }
+
+    // React.js
+    &:nth-child(2) {
+      .barInner {
+        width: 60%;
+      }
+    }
+
+    // Next.js
+    &:nth-child(3) {
+      .barInner {
+        width: 60%;
+      }
+    }
+
+    // React Native
+    &:nth-child(4) {
+      .barInner {
+        width: 50%;
+      }
+    }
+
+    // Vue.js
+    &:nth-child(5) {
+      .barInner {
+        width: 30%;
+      }
+    }
+
+    // GSAP
+    &:nth-child(6) {
+      .barInner {
+        width: 20%;
+      }
+    }
+  }
+
+  p {
+    top: -12px;
+    left: 30px;
+    color: #e5caa8;
+    margin: 0;
+    position: absolute;
+    font-size: 2.4rem;
+    font-weight: bold;
+  }
+}
+
+.bar {
+  @include size(100%, 20px);
+  left: 0;
+  opacity: 0.4;
+  position: absolute;
+  border-radius: 30px;
+  background-color: #f1dcbf;
+}
+
+.barInner {
+  left: 0;
+  height: 20px;
+  position: absolute;
+  border-radius: 30px;
+  background-color: rgb(177, 141, 109);
+}

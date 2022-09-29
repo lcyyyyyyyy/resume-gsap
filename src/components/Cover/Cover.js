@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import Loading from '../Loading/Loading'
 import styles from './Cover.module.scss'
 
-const Cover = ({ isLoad, setIsLoad, ScrollTrigger }) => {
+const Cover = ({ isLoad, setIsLoad }) => {
   useEffect(() => {
     gsap.timeline()
       .from('.letter', {
@@ -51,7 +51,7 @@ const Cover = ({ isLoad, setIsLoad, ScrollTrigger }) => {
         <span className='letter'>N</span>
         <span className='letter'>D</span>
       </div>
-      <Loading isLoad={isLoad} ScrollTrigger={ScrollTrigger} />
+      <Loading isLoad={isLoad} />
     </section>
   )
 }

@@ -8,6 +8,7 @@ import Header from './components/Header/Header'
 import Cover from './components/Cover/Cover'
 import Pointer from './components/Pointer/Pointer'
 import Slider from './components/Slider/Slider'
+import Rate from './components/Rate/Rate'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -35,11 +36,13 @@ function App() {
     <Router>
       {/* <Header /> */}
       <div className='container'>
-        <Cover isLoad={isLoad} setIsLoad={setIsLoad} ScrollTrigger={ScrollTrigger} />
+        <Cover isLoad={isLoad} setIsLoad={setIsLoad} />
         <section id='section1' className={isLoad ? 'loaded' : ''}>
           <Slider />
         </section>
-        <section id='section2' className={isLoad ? 'loaded' : ''}>456</section>
+        <section id='section2' className={isLoad ? 'loaded' : ''}>
+          <Rate isLoad={isLoad} />
+        </section>
         <section id='section3' className={isLoad ? 'loaded' : ''}>789</section>
         {isLoad && <Pointer />}
       </div>

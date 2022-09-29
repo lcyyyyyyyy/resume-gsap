@@ -2,9 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { gsap } from 'gsap'
 import styles from './Ring.module.scss'
 
-const Rings = ({ isLoad, ScrollTrigger }) => {
-  gsap.registerPlugin(ScrollTrigger)
-
+const Rings = ({ isLoad }) => {
   useEffect(() => {
     gsap.timeline()
       .from(['.one', '.two'], {
