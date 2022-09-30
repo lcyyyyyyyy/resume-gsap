@@ -1,3 +1,13 @@
 .container {
   height: 100vh;
 }
+
+.wrapper {
+  width: 50vw;
+}
+
+#skills {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

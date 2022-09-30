@@ -1,0 +1,33 @@
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.skills {
+  width: 100%;
+  margin-top: 80px;
+}
+
+.shapes {
+  @include flex(center, center);
+}
+
+.shape {
+  @include size(100px, 100px);
+  @include flex(center, center);
+  margin: 0 25px;
+  background-color: #000;
+
+  p {
+    color: #b5721f;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+}
+
+@for $i from 1 through 4 {
+  .shape {
+    &:nth-child(#{$i}) {
+      border-radius: #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%} / #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%} #{(random(80) + 20) * 1%};
+      background-color: rgb(225, random(30) + 180, random(40) + 120);
+    }
+  }
+}

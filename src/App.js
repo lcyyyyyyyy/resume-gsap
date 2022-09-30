@@ -9,6 +9,7 @@ import Cover from './components/Cover/Cover'
 import Pointer from './components/Pointer/Pointer'
 import Slider from './components/Slider/Slider'
 import Rate from './components/Rate/Rate'
+import Skills from './components/Skills/Skills'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -40,8 +41,11 @@ function App() {
         <section id='section1' className={isLoad ? 'loaded' : ''}>
           <Slider />
         </section>
-        <section id='section2' className={isLoad ? 'loaded' : ''}>
-          <Rate isLoad={isLoad} />
+        <section id='skills' className={isLoad ? 'loaded' : ''}>
+          <div className='wrapper'>
+            <Rate isLoad={isLoad} />
+            <Skills isLoad={isLoad} />
+          </div>
         </section>
         <section id='section3' className={isLoad ? 'loaded' : ''}>789</section>
         {isLoad && <Pointer />}

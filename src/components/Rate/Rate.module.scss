@@ -2,9 +2,7 @@
 @import '../../styles/mixin';
 
 .rate {
-  @include center(both);
-  width: 50vw;
-  z-index: 101;
+  width: 100%;
 }
 
 .barWrapper {
@@ -61,7 +59,7 @@
   }
 
   p {
-    top: -12px;
+    top: -22px;
     left: 30px;
     color: #e5a759;
     margin: 0;

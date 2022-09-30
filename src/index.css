@@ -1,7 +1,7 @@
 html,
 body {
   margin: 0;
-  font-family: Rufina, sans-serif;
+  font-family: 'Baloo 2', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #fff0df;
@@ -18,8 +18,9 @@ code {
 section {
   width: 100vw;
   height: 100vh;
-  position: relative;
+  z-index: 101;
   opacity: 0;
+  position: relative;
 }
 
 section.loaded {

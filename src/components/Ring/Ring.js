@@ -84,7 +84,7 @@ const Rings = ({ isLoad }) => {
     if (isLeave) {
       const tl3 = gsap.timeline({
         scrollTrigger: {
-          trigger: '#section2',
+          trigger: '#skills',
           scroller: '.container',
           start: 'top top+=70%',
           end: '+=70%',

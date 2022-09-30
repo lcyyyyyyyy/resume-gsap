@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 
 import styles from './Rate.module.scss'
 
-import TextEffect from '../TextEffect/TextEffect'
+// import TextEffect from '../TextEffect/TextEffect'
 
 const Rate = ({ isLoad }) => {
   const skills = [
@@ -45,24 +45,24 @@ const Rate = ({ isLoad }) => {
               duration: 1.4,
               stagger: 0.2,
               width: 0,
-              ease: 'expo.inOut'
+              ease: 'bounce'
             })
 
         return tl2
       }
 
-      // const renderText = () => {
-      //   const tl3 =
-      //     gsap.from('.text', {
-      //       duration: 0.8,
-      //       stagger: 0.2,
-      //       opacity: 0,
-      //       y: '30px',
-      //       ease: 'power4'
-      //     })
+      const renderText = () => {
+        const tl3 =
+          gsap.from('.barText', {
+            duration: 1,
+            stagger: 0.1,
+            opacity: 0,
+            y: '30px',
+            ease: 'power4'
+          })
 
-      //   return tl3
-      // }
+        return tl3
+      }
 
       tl1
         .from('.bar', {
@@ -72,7 +72,7 @@ const Rate = ({ isLoad }) => {
           ease: 'expo.inOut'
         })
         .add(renderBarInner(), '-=2')
-        // .add(renderText(), '-=1')
+        .add(renderText(), '-=1')
     }
   }, [tl1])
 
@@ -83,9 +83,7 @@ const Rate = ({ isLoad }) => {
           <div key={i} className={styles.barWrapper}>
             <div className={`${styles.bar} bar`}></div>
             <div className={`${styles.barInner} barInner`}></div>
-            <p className={`text${i}`}>
-              <TextEffect tl1={tl1} name={item} index={i} />
-            </p>
+            <p className='barText'>{item}</p>
           </div>
         )
       })}
