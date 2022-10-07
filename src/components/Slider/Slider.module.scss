@@ -8,11 +8,10 @@
 }
 
 .proxy {
-  position: absolute;
+  @include size(100%, 100%);
   top: 0;
   left: 0;
-  height: 100%;
-  width: 100%;
+  position: absolute;
 }
 
 .sliderInner {
@@ -29,15 +28,28 @@
   }
 
   .image {
-    width: 30vw;
+    width: 80vw;
     position: relative;
 
-    @include breakpoint(desktop) {
-      width: 20vw;
+    img {
+      @include flex(center, center);
+      border-radius: 0;
     }
 
-    img {
-      width: 100%;
+    // @include breakpoint(desktop) {
+    //   width: 20vw;
+    // }
+
+    &.app {
+      width: 30vw;
+
+      @include breakpoint(desktop) {
+        width: 20vw;
+      }
+
+      img {
+        border-radius: 40px;
+      }
     }
   }
 }

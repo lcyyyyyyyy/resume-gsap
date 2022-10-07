@@ -5,13 +5,17 @@
   @include flex(center, center);
   max-height: 100%;
 
-  video {
+  >video,
+  >img {
     width: 87%;
-    border-radius: 40px;
   }
 
-  img {
+  .frame {
     left: 0;
     position: absolute;
+
+    img {
+      width: 100%;
+    }
   }
 }

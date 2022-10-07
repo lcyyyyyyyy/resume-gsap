@@ -6,11 +6,88 @@ import styles from './Slider.module.scss'
 
 import APP from './APP/APP'
 
+import appHome from '../../static/APP-Home.mp4'
+import appCart from '../../static/APP-Cart.png'
+import appFilter from '../../static/APP-Filter.png'
+import appProduct from '../../static/APP-Product.png'
+import appCategory from '../../static/APP-Category.png'
+import appDesigner from '../../static/APP-Designer.mp4'
+
+import webCart from '../../static/WEB-Cart.png'
+import webHome from '../../static/WEB-Home.png'
+import webSearch from '../../static/WEB-Search.png'
+import webProduct from '../../static/WEB-Product.png'
+import webCategory from '../../static/WEB-Category.png'
+import webNavigation from '../../static/WEB-Navigation.png'
+
 gsap.config({ trialWarn: false })
 
 gsap.registerPlugin(Draggable)
 
 const Slider = () => {
+  const data = [
+    {
+      src: appHome,
+      name: 'APP Home',
+      isApp: true
+    },
+    {
+      src: appDesigner,
+      name: 'APP Designer',
+      isApp: true
+    },
+    {
+      src: appCategory,
+      name: 'APP Category',
+      isApp: true
+    },
+    {
+      src: appFilter,
+      name: 'APP Filter',
+      isApp: true
+    },
+    {
+      src: appProduct,
+      name: 'APP Product',
+      isApp: true
+    },
+    {
+      src: appCart,
+      name: 'APP Cart',
+      isApp: true
+    },
+    {
+      src: webHome,
+      name: 'Website Home',
+      isApp: false
+    },
+    {
+      src: webSearch,
+      name: 'Website Search',
+      isApp: false
+    },
+    {
+      src: webNavigation,
+      name: 'Website Navigation',
+      isApp: false
+    },
+    {
+      src: webCategory,
+      name: 'Website Category',
+      isApp: false
+    },
+    {
+      src: webProduct,
+      name: 'Website Product',
+      isApp: false
+    },
+    {
+      src: webCart,
+      name: 'Website Cart',
+      isApp: false
+    }
+  ]
+
   useEffect(() => {
     const container = document.getElementById('slider')
     const proxy = container.querySelector('.proxy')
@@ -71,44 +148,16 @@ const Slider = () => {
       <div className={`${styles.proxy} proxy`} id='proxy'></div>
       <div className={styles.sliderInner} id='sliderInner'>
         <div className={styles.sliderContent} id='sliderContent'>
-          <div className={`${styles.slide} slide`}>
-            <div className={styles.proxy}></div>
-            <div className={styles.image}>
-              <APP />
-            </div>
-          </div>
-          <div className={`${styles.slide} slide`}>
-            <div className={styles.proxy}></div>
-            <div className={styles.image}>
-              <a href="https://greensock.com" className='hoverItem'>
-                <img src="https://images.unsplash.com/photo-1526973578717-38e3919604e8?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c737c70c1dc740c8285f0074eaaab520" alt="" />
-              </a>
-            </div>
-          </div>
-          <div className={`${styles.slide} slide`}>
-            <div className={styles.proxy}></div>
-            <div className={styles.image}>
-              <a href="https://greensock.com" className='hoverItem'>
-                <img src="https://images.unsplash.com/photo-1526973578717-38e3919604e8?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c737c70c1dc740c8285f0074eaaab520" alt="" />
-              </a>
-            </div>
-          </div>
-          <div className={`${styles.slide} slide`}>
-            <div className={styles.proxy}></div>
-            <div className={styles.image}>
-              <a href="https://greensock.com">
-                <img src="https://images.unsplash.com/photo-1526973578717-38e3919604e8?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c737c70c1dc740c8285f0074eaaab520" alt="" />
-              </a>
-            </div>
-          </div>
-          <div className={`${styles.slide} slide`}>
-            <div className={styles.proxy}></div>
-            <div className={styles.image}>
-              <a href="https://greensock.com">
-                <img src="https://images.unsplash.com/photo-1526973578717-38e3919604e8?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=c737c70c1dc740c8285f0074eaaab520" alt="" />
-              </a>
-            </div>
-          </div>
+          {data.map((item, i) => {
+            return (
+              <div key={i} className={`${styles.slide} slide`}>
+                <div className={styles.proxy}></div>
+                <div className={`${styles.image}${item.isApp ? ` ${styles.app}` : ''}`}>
+                  <APP item={item} />
+                </div>
+              </div>
+            )
+          })}
         </div>
       </div>
     </div>
